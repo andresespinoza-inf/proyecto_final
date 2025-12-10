@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos Numéricos - Aplicación Interactiva</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+<!-- Barra de navegación -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-calculator me-2"></i> Métodos Numéricos
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#hero">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#ecuaciones">Ecuaciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#integracion">Integración</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#diferenciales">Ecuaciones Diferenciales</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section py-5 mt-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h1 class="display-4 mb-3">Aplicación de Métodos Numéricos</h1>
+                    <p class="lead">Resuelve problemas del mundo real utilizando métodos numéricos implementados en JavaScript</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                
+                <!-- Tarjeta 1: Solución de ecuaciones -->
+<div class="col-md-4 mb-4">
+    <div class="method-card h-100">
+        <div class="card-header">
+            <i class="fas fa-equals me-2"></i>Solución de Ecuaciones
+        </div>
+        <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Punto de Fusión de una Aleación</h5>
+            <p class="card-text">Determina la temperatura a la que una aleación metálica cambia de estado sólido a líquido mediante modelos matemáticos.</p>
+            <div class="mt-auto">
+                <p><strong>Métodos:</strong></p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check-circle text-success me-2"></i>Bisección</li>
+                    <li><i class="fas fa-check-circle text-success me-2"></i>Newton-Raphson</li>
+                </ul>
+                <button class="btn btn-primary btn-explorar" data-target="#ecuaciones">Explorar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tarjeta 2: Integración numérica -->
+<div class="col-md-4 mb-4">
+    <div class="method-card h-100">
+        <div class="card-header">
+            <i class="fas fa-integral me-2"></i>Integración Numérica
+        </div>
+        <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Área de un Terreno Irregular</h5>
+            <p class="card-text">Calcula el área de terrenos con formas irregulares a partir de mediciones discretas, útil en topografía y agrimensura.</p>
+            <div class="mt-auto">
+                <p><strong>Métodos:</strong></p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check-circle text-success me-2"></i>Regla del Trapecio</li>
+                    <li><i class="fas fa-check-circle text-success me-2"></i>Regla de Simpson</li>
+                </ul>
+                <button class="btn btn-primary btn-explorar" data-target="#integracion">Explorar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tarjeta 3: Ecuaciones diferenciales -->
+<div class="col-md-4 mb-4">
+    <div class="method-card h-100">
+        <div class="card-header">
+            <i class="fas fa-chart-line me-2"></i>Ecuaciones Diferenciales
+        </div>
+        <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Enfriamiento de una Bebida</h5>
+            <p class="card-text">Modela cómo cambia la temperatura de una bebida caliente con el tiempo según la ley de enfriamiento de Newton.</p>
+            <div class="mt-auto">
+                <p><strong>Métodos:</strong></p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check-circle text-success me-2"></i>Método de Euler</li>
+                    <li><i class="fas fa-check-circle text-success me-2"></i>Método de Taylor</li>
+                </ul>
+                <button class="btn btn-primary btn-explorar" data-target="#diferenciales">Explorar</button>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido principal -->
+    <div class="container my-5" id="main-content">
+        <!-- Pestañas de métodos -->
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="ecuaciones-tab" data-bs-toggle="tab" data-bs-target="#ecuaciones" type="button" role="tab">
+                            <i class="fas fa-equals me-2"></i>Solución de Ecuaciones
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="integracion-tab" data-bs-toggle="tab" data-bs-target="#integracion" type="button" role="tab">
+                            <i class="fas fa-integral me-2"></i>Integración Numérica
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="diferenciales-tab" data-bs-toggle="tab" data-bs-target="#diferenciales" type="button" role="tab">
+                            <i class="fas fa-chart-line me-2"></i>Ecuaciones Diferenciales
+                        </button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="myTabContent">
+                    
+                    <!-- Pestaña 1: Solución de Ecuaciones -->
+                    <div class="tab-pane fade show active" id="ecuaciones" role="tabpanel">
+                        <div class="row">
+                            <!-- Panel de controles -->
+                            <div class="col-md-8">
+                                <h3 class="mb-4">Solución de Ecuaciones No Lineales</h3>
+                                
+                                <div class="method-selector">
+                                    <p class="fw-bold">Selecciona un método:</p>
+                                    <button id="btn-biseccion" class="btn btn-primary btn-method active">Método de Bisección</button>
+                                    <button id="btn-newton" class="btn btn-outline-primary btn-method">Método de Newton-Raphson</button>
+                                </div>
+                                
+                                <!-- Problema para resolver -->
+                                <div class="problem-box">
+                                    <h5><i class="fas fa-question-circle me-2"></i>Problema del mundo real:</h5>
+                                    <p id="ecuacion-problema">Determinar el punto de fusión de una aleación metálica. La resistencia eléctrica de la aleación cambia con la temperatura según el modelo: <code>R(T) = 0.5T² - 15T + 100</code>. 
+                                    El punto de fusión ocurre cuando la resistencia alcanza un valor crítico de 20 Ω. Por lo tanto, necesitamos resolver: <code>0.5T² - 15T + 100 = 20</code>.</p>
+                                    <p>Simplificando: <code>f(T) = 0.5T² - 15T + 80 = 0</code></p>
+                                    <p>Donde T representa la temperatura en grados Celsius.</p>
+                                </div>
+                                
+                                <!-- Controles para el método seleccionado -->
+                                <div id="controles-biseccion" class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="intervalo-a" class="form-label">Extremo izquierdo del intervalo (a):</label>
+                                            <input type="number" class="form-control" id="intervalo-a" value="0" step="any" readonly>
+                                            <div class="form-text">Valor inicial del intervalo donde se busca la raíz</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="intervalo-b" class="form-label">Extremo derecho del intervalo (b):</label>
+                                            <input type="number" class="form-control" id="intervalo-b" value="30" step="any" readonly>
+                                            <div class="form-text">Valor final del intervalo donde se busca la raíz</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="tolerancia-biseccion" class="form-label">Tolerancia (error máximo):</label>
+                                            <input type="number" class="form-control" id="tolerancia-biseccion" value="0.0001" step="0.0001" min="0.000001" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="max-iteraciones-biseccion" class="form-label">Máximo de iteraciones:</label>
+                                            <input type="number" class="form-control" id="max-iteraciones-biseccion" value="100" min="1" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="controles-newton" class="row mb-4" style="display: none;">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="valor-inicial" class="form-label">Valor inicial (T₀):</label>
+                                            <input type="number" class="form-control" id="valor-inicial" value="15" step="any" readonly>
+                                            <div class="form-text">Valor inicial para comenzar las iteraciones</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="tolerancia-newton" class="form-label">Tolerancia (error máximo):</label>
+                                            <input type="number" class="form-control" id="tolerancia-newton" value="0.0001" step="0.0001" min="0.000001" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="max-iteraciones-newton" class="form-label">Máximo de iteraciones:</label>
+                                            <input type="number" class="form-control" id="max-iteraciones-newton" value="100" min="1" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <button id="calcular-ecuacion" class="btn btn-primary btn-lg">
+                                            <i class="fas fa-play-circle me-2"></i>Calcular Solución
+                                        </button>
+                                        <button id="cambiar-valores-ecuacion" class="btn btn-outline-primary">
+                                            <i class="fas fa-random me-2"></i>Cambiar Valores
+                                        </button>
+                                        <button id="reiniciar-ecuacion" class="btn btn-outline-secondary">
+                                            <i class="fas fa-redo me-2"></i>Reiniciar
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Resultados -->
+                                <div id="resultado-ecuaciones" class="result-box" style="display: none;">
+                                    <h5><i class="fas fa-chart-bar me-2"></i>Resultados:</h5>
+                                    <div id="resultado-texto"></div>
+                                    <div id="tabla-iteraciones" class="iteration-table"></div>
+                                </div>
+                                
+                                <!-- Explicación del método -->
+                                <div id="explicacion-biseccion" class="explanation-box">
+                                    <h5><i class="fas fa-lightbulb me-2"></i>Explicación del Método de Bisección:</h5>
+                                    <p>El método de bisección es un algoritmo de búsqueda de raíces que divide repetidamente un intervalo a la mitad y selecciona el subintervalo que contiene la raíz. Requiere que la función sea continua en el intervalo [a, b] y que f(a) y f(b) tengan signos opuestos.</p>
+                                    <p>En este problema, encontramos la temperatura a la que la aleación metálica alcanza su punto de fusión, determinado por un cambio crítico en su resistencia eléctrica.</p>
+                                </div>
+                                
+                                <div id="explicacion-newton" class="explanation-box" style="display: none;">
+                                    <h5><i class="fas fa-lightbulb me-2"></i>Explicación del Método de Newton-Raphson:</h5>
+                                    <p>El método de Newton-Raphson utiliza la derivada de la función para encontrar una aproximación de la raíz. Comienza con un valor inicial y en cada iteración calcula una nueva aproximación usando la fórmula: <code>x₁ = x₀ - f(x₀)/f'(x₀)</code>.</p>
+                                    <p>Este método converge más rápido que la bisección pero requiere el cálculo de la derivada y un buen valor inicial. En nuestro problema, la derivada es <code>f'(T) = T - 15</code>.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Panel del gráfico -->
+                            <div class="col-md-4">
+                                <div class="graph-sidebar">
+                                    <h5 class="mb-3">Visualización</h5>
+                                    <div class="chart-container-side">
+                                        <canvas id="grafico-ecuaciones"></canvas>
+                                    </div>
+                                    <div class="graph-info mt-3">
+                                        <p class="small"><i class="fas fa-info-circle me-2"></i>El gráfico muestra la función y la raíz encontrada</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pestaña 2: Integración Numérica -->
+                    <div class="tab-pane fade" id="integracion" role="tabpanel">
+                        <div class="row">
+                            <!-- Panel de controles -->
+                            <div class="col-md-8">
+                                <h3 class="mb-4">Integración Numérica</h3>
+                                
+                                <div class="method-selector">
+                                    <p class="fw-bold">Selecciona un método:</p>
+                                    <button id="btn-trapecio" class="btn btn-primary btn-method active">Regla del Trapecio</button>
+                                    <button id="btn-simpson" class="btn btn-outline-primary btn-method">Regla de Simpson</button>
+                                </div>
+                                
+                                <!-- Problema para resolver -->
+                                <div class="problem-box">
+                                    <h5><i class="fas fa-question-circle me-2"></i>Problema del mundo real:</h5>
+                                    <p id="integracion-problema">Calcular el área de un terreno irregular. Se han tomado mediciones de ancho (en metros) a intervalos regulares a lo largo del terreno. Los anchos medidos siguen la función: <code>f(x) = 10 + 2*sin(0.5x) + 0.3*x</code>, donde x es la distancia desde el inicio del terreno.</p>
+                                    <p>Función: <code>f(x) = 10 + 2*sin(0.5x) + 0.3*x</code></p>
+                                    <p>Queremos calcular el área total del terreno entre x=0 y x=20 metros.</p>
+                                </div>
+                                
+                                <!-- Controles para integración -->
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="limite-a" class="form-label">Límite inferior (a):</label>
+                                            <input type="number" class="form-control" id="limite-a" value="0" step="any" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="limite-b" class="form-label">Límite superior (b):</label>
+                                            <input type="number" class="form-control" id="limite-b" value="20" step="any" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="n-subintervalos" class="form-label">Número de subintervalos (n):</label>
+                                            <input type="number" class="form-control" id="n-subintervalos" value="10" min="1" readonly>
+                                            <div class="form-text">Para Simpson, n debe ser par</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="funcion-integracion" class="form-label">Función a integrar f(x):</label>
+                                            <input type="text" class="form-control" id="funcion-integracion" value="10 + 2*Math.sin(0.5*x) + 0.3*x" readonly>
+                                            <div class="form-text">Función que describe el ancho del terreno</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <button id="calcular-integracion" class="btn btn-primary btn-lg">
+                                            <i class="fas fa-play-circle me-2"></i>Calcular Área
+                                        </button>
+                                        <button id="cambiar-valores-integracion" class="btn btn-outline-primary">
+                                            <i class="fas fa-random me-2"></i>Cambiar Valores
+                                        </button>
+                                        <button id="reiniciar-integracion" class="btn btn-outline-secondary">
+                                            <i class="fas fa-redo me-2"></i>Reiniciar
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Resultados -->
+                                <div id="resultado-integracion" class="result-box" style="display: none;">
+                                    <h5><i class="fas fa-chart-bar me-2"></i>Resultados:</h5>
+                                    <div id="resultado-integracion-texto"></div>
+                                </div>
+                                
+                                <!-- Explicación del método -->
+                                <div id="explicacion-trapecio" class="explanation-box">
+                                    <h5><i class="fas fa-lightbulb me-2"></i>Explicación de la Regla del Trapecio:</h5>
+                                    <p>La regla del trapecio aproxima el área bajo la curva dividiendo el intervalo en subintervalos y aproximando el área en cada subintervalo como un trapecio. La fórmula es: <code>∫f(x)dx ≈ (b-a)/2n * [f(x₀) + 2f(x₁) + 2f(x₂) + ... + 2f(xₙ₋₁) + f(xₙ)]</code>.</p>
+                                    <p>En este problema, el resultado representa el área del terreno irregular en metros cuadrados. Cuantos más subintervalos uses, más precisa será la aproximación.</p>
+                                </div>
+                                
+                                <div id="explicacion-simpson" class="explanation-box" style="display: none;">
+                                    <h5><i class="fas fa-lightbulb me-2"></i>Explicación de la Regla de Simpson:</h5>
+                                    <p>La regla de Simpson aproxima el área bajo la curva usando parábolas en lugar de líneas rectas. Requiere un número par de subintervalos y generalmente es más precisa que la regla del trapecio. La fórmula es: <code>∫f(x)dx ≈ (b-a)/3n * [f(x₀) + 4f(x₁) + 2f(x₂) + 4f(x₃) + ... + 2f(xₙ₋₂) + 4f(xₙ₋₁) + f(xₙ)]</code>.</p>
+                                    <p>Para funciones suaves como la que describe el terreno, Simpson proporciona una excelente aproximación con pocos subintervalos.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Panel del gráfico -->
+                            <div class="col-md-4">
+                                <div class="graph-sidebar">
+                                    <h5 class="mb-3">Visualización</h5>
+                                    <div class="chart-container-side">
+                                        <canvas id="grafico-integracion"></canvas>
+                                    </div>
+                                    <div class="graph-info mt-3">
+                                        <p class="small"><i class="fas fa-info-circle me-2"></i>El gráfico muestra la forma del terreno y la aproximación del área</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pestaña 3: Ecuaciones Diferenciales -->
+                    <div class="tab-pane fade" id="diferenciales" role="tabpanel">
+                        <div class="row">
+                            <!-- Panel de controles -->
+                            <div class="col-md-8">
+                                <h3 class="mb-4">Ecuaciones Diferenciales Ordinarias</h3>
+                                
+                                <div class="method-selector">
+                                    <p class="fw-bold">Selecciona un método:</p>
+                                    <button id="btn-euler" class="btn btn-primary btn-method active">Método de Euler</button>
+                                    <button id="btn-taylor" class="btn btn-outline-primary btn-method">Método de Taylor (Orden 2)</button>
+                                </div>
+                                
+                                <!-- Problema para resolver -->
+                                <div class="problem-box">
+                                    <h5><i class="fas fa-question-circle me-2"></i>Problema del mundo real:</h5>
+                                    <p id="diferencial-problema">Modelar el enfriamiento de una taza de café. Según la ley de enfriamiento de Newton, la tasa de cambio de la temperatura de un objeto es proporcional a la diferencia entre su temperatura y la temperatura ambiente: <code>dT/dt = -k(T - Tₐ)</code>, donde T es la temperatura del objeto, Tₐ es la temperatura ambiente, y k es la constante de enfriamiento.</p>
+                                    <p>Ecuación: <code>dT/dt = -k * (T - Tₐ)</code></p>
+                                    <p>Condición inicial: <code>T(0) = Temperatura inicial</code></p>
+                                    <p>Queremos predecir la temperatura después de un tiempo determinado.</p>
+                                </div>
+                                
+                                <!-- Controles para ecuaciones diferenciales -->
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="condicion-inicial" class="form-label">Temperatura inicial (°C):</label>
+                                            <input type="number" class="form-control" id="condicion-inicial" value="85" step="any" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="temperatura-ambiente" class="form-label">Temperatura ambiente (°C):</label>
+                                            <input type="number" class="form-control" id="temperatura-ambiente" value="25" step="any" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="constante-enfriamiento" class="form-label">Constante de enfriamiento (k):</label>
+                                            <input type="number" class="form-control" id="constante-enfriamiento" value="0.07" step="0.01" min="0.01" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="punto-final" class="form-label">Tiempo final (minutos):</label>
+                                            <input type="number" class="form-control" id="punto-final" value="30" step="any" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="paso-h" class="form-label">Tamaño del paso (h):</label>
+                                            <input type="number" class="form-control" id="paso-h" value="0.5" step="0.1" min="0.01" readonly>
+                                            <div class="form-text">Valores más pequeños dan mayor precisión</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <button id="calcular-diferencial" class="btn btn-primary btn-lg">
+                                            <i class="fas fa-play-circle me-2"></i>Resolver Ecuación
+                                        </button>
+                                        <button id="cambiar-valores-diferencial" class="btn btn-outline-primary">
+                                            <i class="fas fa-random me-2"></i>Cambiar Valores
+                                        </button>
+                                        <button id="reiniciar-diferencial" class="btn btn-outline-secondary">
+                                            <i class="fas fa-redo me-2"></i>Reiniciar
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Resultados -->
+                                <div id="resultado-diferenciales" class="result-box" style="display: none;">
+                                    <h5><i class="fas fa-chart-bar me-2"></i>Resultados:</h5>
+                                    <div id="resultado-diferenciales-texto"></div>
+                                    <div id="tabla-diferenciales" class="iteration-table"></div>
+                                </div>
+                                
+                                <!-- Explicación del método -->
+                                <div id="explicacion-euler" class="explanation-box">
+                                    <h5><i class="fas fa-lightbulb me-2"></i>Explicación del Método de Euler:</h5>
+                                    <p>El método de Euler es un procedimiento numérico de primer orden para resolver ecuaciones diferenciales ordinarias con un valor inicial dado. Utiliza la fórmula: <code>yₙ₊₁ = yₙ + h * f(tₙ, yₙ)</code>, donde h es el tamaño del paso.</p>
+                                    <p>En este problema, predecimos cómo cambia la temperatura de la bebida con el tiempo. El método de Euler es simple pero puede acumular error si el paso es grande.</p>
+                                </div>
+                                
+                                <div id="explicacion-taylor" class="explanation-box" style="display: none;">
+                                    <h5><i class="fas fa-lightbulb me-2"></i>Explicación del Método de Taylor (Orden 2):</h5>
+                                    <p>El método de Taylor de orden 2 mejora la precisión del método de Euler incluyendo el término de segundo orden en la expansión de Taylor. La fórmula es: <code>yₙ₊₁ = yₙ + h * f(tₙ, yₙ) + (h²/2) * f'(tₙ, yₙ)</code>.</p>
+                                    <p>Este método es más preciso que Euler pero requiere calcular la derivada de f.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Panel del gráfico -->
+                            <div class="col-md-4">
+                                <div class="graph-sidebar">
+                                    <h5 class="mb-3">Visualización</h5>
+                                    <div class="chart-container-side">
+                                        <canvas id="grafico-diferenciales"></canvas>
+                                    </div>
+                                    <div class="graph-info mt-3">
+                                        <p class="small"><i class="fas fa-info-circle me-2"></i>El gráfico muestra la evolución de la temperatura con el tiempo</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-md-start">
+                    <h5>Métodos Numéricos</h5>
+                    <p>Aplicación web interactiva para resolver problemas del mundo real</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>Desarrollado para la materia de Métodos Numéricos</p>
+                    <p>© 2023 - Todos los derechos reservados</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script principal -->
+    <script src="script.js"></script>
+</body>
+</html>

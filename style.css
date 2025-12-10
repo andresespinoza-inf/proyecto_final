@@ -1,0 +1,242 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --light-bg: #f8f9fa;
+    --dark-bg: #2c3e50;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    padding-top: 76px; /* Para compensar la navbar fija */
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary-color) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+    border-bottom: 1px solid #ddd;
+    margin-top: -20px;
+    padding-top: 60px;
+}
+
+.method-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: none;
+    height: 100%;
+}
+
+.method-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    font-weight: 700;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    border-bottom: none;
+}
+
+/* Contenido de pestañas */
+.tab-content {
+    padding: 20px;
+    background-color: white;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid #dee2e6;
+    border-top: none;
+}
+
+.problem-box {
+    background-color: #e8f4fc;
+    border-left: 4px solid var(--secondary-color);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.result-box {
+    background-color: #f0f7f0;
+    border-left: 4px solid var(--success-color);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.explanation-box {
+    background-color: #fff8e1;
+    border-left: 4px solid var(--warning-color);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+/* Gráficos en sidebar */
+.graph-sidebar {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-container-side {
+    position: relative;
+    height: 300px;
+    flex-grow: 1;
+}
+
+.graph-info {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+    border-left: 3px solid var(--secondary-color);
+}
+
+/* Controles */
+.method-selector {
+    margin-bottom: 20px;
+}
+
+.btn-method {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.step-info {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+.footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px 0;
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* Formularios */
+.form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+}
+
+.form-control[readonly] {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+/* Pestañas */
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.nav-tabs .nav-link.active {
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: white;
+    border-color: #dee2e6 #dee2e6 white;
+    border-top: 3px solid var(--secondary-color);
+}
+
+.nav-tabs .nav-link {
+    color: #7f8c8d;
+    border: 1px solid transparent;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-bottom: -1px;
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--primary-color);
+    border-color: #e9ecef #e9ecef #dee2e6;
+}
+
+/* Tablas */
+.iteration-table {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 15px;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    
+    .method-card {
+        margin-bottom: 20px;
+    }
+    
+    .graph-sidebar {
+        margin-top: 30px;
+        height: 350px;
+    }
+    
+    .chart-container-side {
+        height: 250px;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.result-box, .explanation-box, .problem-box {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Botones */
+.btn-lg {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
